@@ -1,12 +1,12 @@
 import sys
 
-skipped = {2, 9, 27}
+skipped = {12}
 
-for i in range(1, 31):
+for i in range(1, 13):
     if i in skipped:
         continue
     # check the results if there is a deviation
-    for j in [10, 30, 50, 100]:
+    for j in [10, 20]:
         for k in range(1, j+1):   
             """ if i == 14 and j == 100 and k == 51:
                 continue    """ 

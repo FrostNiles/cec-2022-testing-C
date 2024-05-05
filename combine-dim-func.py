@@ -4,7 +4,7 @@ import os
 import time
 import concurrent.futures
 
-skipped = {}
+skipped = {12}
 
 # Compile the C++ file
 if not os.path.exists('./main'):

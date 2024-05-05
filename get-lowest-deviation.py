@@ -29,8 +29,8 @@ def get_lowest_deviation(deviations):
     return lowest_deviation
 
 deviations = []
-skipped = {2, 9, 27}
-for i in range(1, 31):
+skipped = {12}
+for i in range(1, 13):
     if i in skipped:
         continue
     for j in [dimension]:
