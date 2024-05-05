@@ -24,7 +24,7 @@ with open(f'test_data/shift_data_{argNum}_backup.txt', 'w') as file:
 
 
 # Extract the second number from the modified data
-numbers = re.findall(r'(-?\d+\.\d+e[+-]\d+)', data)
+numbers = re.findall(r'(-?\d*\.?\d*e[+-]\d+)', data)
 if len (numbers) < 100:
     with open(f'test_data/result/result_data_{argNum}_dim_{dimension}_number_of_element_{number_of_element+1}.txt', 'w') as file:
         file.write(f"deviation:{float('inf')}")
@@ -32,6 +32,7 @@ if len (numbers) < 100:
 
 if len(numbers) >= numberOfDelete:
     numeroToDelete = numbers[numberOfDelete]
+
 else:
     print("The number of the position to delete is greater than the number of numbers in the file")
     sys.exit()
