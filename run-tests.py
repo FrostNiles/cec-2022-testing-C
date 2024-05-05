@@ -2,9 +2,9 @@ import runpy
 import re
 import sys
 
-""" arg1 = sys.argv[1]
+arg1 = sys.argv[1]
 arg2 = sys.argv[2]
-arg3 = sys.argv[3] """
+arg3 = sys.argv[3]
 
 # Run the first Python script
 argNum = arg1
@@ -12,7 +12,6 @@ dimension = arg2
 
 sys.argv = ['run-tests.py', arg1, arg2, arg3]
 #import the original data
-
 
 runpy.run_path('./import-original.py')
 runpy.run_path('./run-main.py')
@@ -126,6 +125,7 @@ eightDigits = after[:8]
 lastTwoDigits = after[-2:]
 
 
+counter = 0
 
 while int(eightDigits) > 0 or int(lastTwoDigits) < 96:
     
@@ -149,6 +149,9 @@ while int(eightDigits) > 0 or int(lastTwoDigits) < 96:
 
     eightDigits = after[:8]
     lastTwoDigits = after[-2:]
+    counter += 1
+    if counter == 50:
+        sys.exit()
 
 
 #open the shift_data_1.txt and read the data

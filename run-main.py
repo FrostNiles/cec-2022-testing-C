@@ -8,9 +8,6 @@ if dimension not in ['2', '10','20', '30', '50', '100']:
     print("Invalid dimension. Please choose from 2, 10, 20, 30, 50, or 100.")
     sys.exit(1)
 
-# Compile the C++ file
-subprocess.run(["g++", "main.cpp", "cec22_test_func.cpp", "-o", "main"], check=True)
-
 # Set the dimension as a command line argument for the C++ program
 args = ["./main", func_num, dimension]
 
