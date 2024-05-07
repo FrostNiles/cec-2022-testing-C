@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
 
-skipped = {6,7,8,12}
+skipped = {}
 
 function_numbers = [i for i in range(1, 13) if i not in skipped]
 

@@ -29,7 +29,7 @@ def get_lowest_deviation(deviations):
     return lowest_deviation
 
 deviations = []
-skipped = {12}
+skipped = {}
 for i in range(1, 13):
     if i in skipped:
         continue
