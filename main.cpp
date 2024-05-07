@@ -67,7 +67,7 @@ int main(int argc, char **argv)
 			cec22_test_func(x, f, n,m,func_num);
 			for (j = 0; j < 1; j++)
 			{
-				printf(" f%d(x[%d]) = %.10f,",func_num,j+1,f[j]);
+				printf(" f%d(x[%d]) = %.9f,",func_num,j+1,f[j]);
 
 				sprintf(FileName, "test_data/current_result_%d.txt", func_num);
 				rst = fopen(FileName,"w+");
@@ -75,7 +75,7 @@ int main(int argc, char **argv)
 				{
 					printf("\n Error: Cannot open input file for reading \n");
 				}
-				fprintf(rst, " f%d(x[%d]) = %.10f,", func_num, j + 1, f[j]);
+				fprintf(rst, " f%d(x[%d]) = %.9f,", func_num, j + 1, f[j]);
 				fclose(rst);
 			}
 			printf("\n");
