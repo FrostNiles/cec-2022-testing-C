@@ -1,2 +1,2 @@
-Deviation: 2.37055564881303e-15
-Position: 19
+Deviation: 4.2632564145606005e-14
+Position: 4
