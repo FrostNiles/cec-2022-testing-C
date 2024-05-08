@@ -13,9 +13,6 @@ python_deviations = []  # create an empty list to store deviations
 
 # load deviations from files
 for i in range(1, 13):
-    if i in [12]:
-        deviations.append(0)
-        continue
     with open(f'test_data/result/graph/C/lowest_dev_{i}_dim_{dimension}.txt', 'r') as file:
         contents = file.read()
         if 'Deviation:' in contents:
