@@ -78,6 +78,6 @@ ax.set_yscale('log')
 # Create a unified legend for all three datasets
 ax.legend(loc='upper right', fontsize='x-large')
 
-plt.savefig(f'../2022-D{dimension}.png', dpi=600)
+plt.savefig(f'../2022-D{dimension}.png', dpi=600, bbox_inches='tight')
 
 #plt.show()

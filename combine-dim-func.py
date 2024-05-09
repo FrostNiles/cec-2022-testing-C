@@ -21,7 +21,7 @@ if __name__ == '__main__':
     # Create a ThreadPoolExecutor
     with concurrent.futures.ThreadPoolExecutor() as executor:
         futures = []
-        for i in range(12, 13):
+        for i in range(1, 13):
             if i in skipped:
                 continue
             # Run the test in a separate thread
