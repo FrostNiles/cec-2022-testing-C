@@ -24,9 +24,6 @@ with open(f'test_data/current_result_{argNum}.txt', 'r') as file:
 # Find the number in the string
 result = re.findall(r'\d+\.\d+', result)
 
-# Keep the number as a string to preserve trailing zeroes
-number_string = result[0]
-
 # Convert to float when you need to do a numerical operation
 
 result = str(result)
@@ -36,7 +33,7 @@ before = result[0]
 #after the floating point
 after = result[1]
 
-# Now I want to get the first 8 digits from after
+# Now I want to get the first 7 digits from after
 sevenDigits = after[:7]
 
 if int(sevenDigits) != 0:
@@ -126,7 +123,7 @@ before = result[0]
 #after the floating point
 after = result[1]
 
-# Now I want to get the first 8 digits from after
+# Now I want to get the first 7 digits from after
 sevenDigits = after[:7]
 lastTwoDigits = after[-2:]
 
@@ -158,6 +155,7 @@ while int(sevenDigits) > 0 or int(lastTwoDigits) < 96:
     counter += 1
     if counter == 50:
         runpy.run_path('./anomaly-deviation.py')
+        sys.exit()
 
 
 #open the shift_data_1.txt and read the data
@@ -170,6 +168,7 @@ with open(f'test_data/shift_data_{argNum}_final_bisection.txt', 'w') as file:
 
 runpy.run_path('./deviation.py')
 runpy.run_path('./inspection.py')
+
 runpy.run_path('./run-main.py')
 
 with open(f'test_data/current_result_{argNum}.txt', 'r') as file:
@@ -185,7 +184,7 @@ before = result[0]
 after = result[1]
 
 
-# Now I want to get the first 8 digits from after
+# Now I want to get the first 7 digits from after
 sevenDigits = after[:7]
 
 lastTwoDigits = after[-2:]

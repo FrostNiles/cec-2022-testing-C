@@ -3,3 +3,6 @@
 
 !/test_data/result/
 main.exe
+
+!/test_data/graph-results/
+!/test_data/table-results/
