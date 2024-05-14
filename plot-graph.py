@@ -8,9 +8,9 @@ skipped = {}
 
 function_numbers = [i for i in range(1, 13) if i not in skipped]
 
-dimension = sys.argv[1]
 dimension = dimension
-number_of_element = sys.argv[2]
+dimension = dimension
+number_of_element = number_of_element
 number_of_element = int(number_of_element)
 
 deviations = []  # create an empty list to store deviations
@@ -25,45 +25,49 @@ python_data = []
 for i in range(1, 13):
     if i in skipped:
         continue
-    for j in [dimension]:
-        for k in range (1, number_of_element+1):
-            with open(f'test_data/result/result_data_{i}_dim_{j}_number_of_element_{k}.txt', 'r') as file:
-                contents = file.read()
-                if ':' in contents:
-                    deviation = contents.split(':')[1].strip()
-                    deviation = float(deviation)
-                    if deviation == math.inf:
-                        deviation = 1.0
-                    deviations.append(deviation)
-                    data.append([i, deviation])
+    with open(f'test_data/result/result_data_{i}_dim_{dimension}_number_of_element_{number_of_element}.txt', 'r') as file:
+        contents = file.read()
+        if ':' in contents:
+            deviation = contents.split(':')[1].strip()
+            deviation = float(deviation)
+            if deviation == math.inf:
+                deviation = 10e12
+            deviations.append(deviation)
+            if deviation == 10e12:
+                deviaton = math.inf
+            data.append([i, deviation])
 
-                else:
-                    print(f"File result_data_{i}_dim_{j}_number_of_element_{k}.txt does not contain a ':'")
-            
-            with open(f'../test2022-mat/test_data/result/result_data_{i}_dim_{j}_number_of_element_{k}.txt', 'r') as file:
-                contents = file.read()
-                if ':' in contents:
-                    deviation = contents.split(':')[1].strip()
-                    deviation = float(deviation)
-                    if deviation == math.inf:
-                        deviation = 1.0
-                    matlab_deviations.append(deviation)
-                    matlab_data.append([i, deviation])
-                else:
-                    print(f"File result_data_{i}_dim_{j}_number_of_element_{k}.txt does not contain a ':'")
-            
-            with open(f'../test2022-pyth/test_data/result/result_data_{i}_dim_{j}_number_of_element_{k}.txt', 'r') as file:
-                contents = file.read()
-                if ':' in contents:
-                    deviation = contents.split(':')[1].strip()
-                    deviation = float(deviation)
-                    if deviation == math.inf:
-                        deviation = 1.0
-                    python_deviations.append(deviation)
-                    python_data.append([i, deviation])
-                else:
-                    print(f"File result_data_{i}_dim_{j}_number_of_element_{k}.txt does not contain a ':'")
-            
+        else:
+            print(f"File result_data_{i}_dim_{dimension}_number_of_element_{number_of_element}.txt does not contain a ':'")
+    
+    with open(f'../test2022-mat/test_data/result/result_data_{i}_dim_{dimension}_number_of_element_{number_of_element}.txt', 'r') as file:
+        contents = file.read()
+        if ':' in contents:
+            deviation = contents.split(':')[1].strip()
+            deviation = float(deviation)
+            if deviation == math.inf:
+                deviation = 10e12
+            matlab_deviations.append(deviation)
+            if deviation == 10e12:
+                deviaton = math.inf
+            matlab_data.append([i, deviation])
+        else:
+            print(f"File result_data_{i}_dim_{dimension}_number_of_element_{number_of_element}.txt does not contain a ':'")
+    
+    with open(f'../test2022-pyth/test_data/result/result_data_{i}_dim_{dimension}_number_of_element_{number_of_element}.txt', 'r') as file:
+        contents = file.read()
+        if ':' in contents:
+            deviation = contents.split(':')[1].strip()
+            deviation = float(deviation)
+            if deviation == math.inf:
+                deviation = 10e12
+            python_deviations.append(deviation)
+            if deviation == 10e12:
+                deviaton = math.inf
+            python_data.append([i, deviation])
+        else:
+            print(f"File result_data_{i}_dim_{dimension}_number_of_element_{number_of_element}.txt does not contain a ':'")
+    
 
 
 
@@ -101,6 +105,7 @@ ax.legend(loc='upper right', fontsize='x-large')
 
 plt.savefig(f'./test_data/graph-results/2022-D{dimension}-E{number_of_element}.png', dpi=600, bbox_inches='tight')
 
+plt.clf()
 #plt.show()
 
 
